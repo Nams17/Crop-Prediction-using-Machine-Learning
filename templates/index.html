@@ -1,0 +1,201 @@
+{%load static%}
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CROP PREDICTION</title>
+    <!-- <link rel="stylesheet" href="form.css"> -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        /* background-image: url("{% static 'images/bg.jpg' %}"); */
+        /* background-image: url("D:\6th Sem Mini Project\Django project\crop_prediction\crop_prediction\static\123.jpg"); */
+        background-image: url("{% static '123.jpg'%}"); 
+        background-size: cover;
+        background-repeat: repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .title {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .content {
+        margin-top: 20px;
+      }
+
+      .input-box {
+        margin-bottom: 20px;
+      }
+
+      .details {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .button-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .button button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .button button:hover {
+        background-color: #45a049;
+      }
+
+      #result {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Container for the form -->
+    <div class="container">
+      <!-- Title of the form -->
+      <div class="title">CROP PREDICTION</div>
+      <hr />
+      <div class="content">
+        <!--  Form -->
+        <form
+          id="myForm"
+          action="{% url 'result' %}"
+          method="POST"
+        >
+          {% csrf_token %}
+          <div class="user-details">
+            <!-- Input box for area -->
+            <div class="input-box">
+              <span class="details">Area</span>
+              <input
+                type="text"
+                id="area"
+                name="area"
+                placeholder="Enter Country Name..."
+                required
+              />
+            </div>
+            <!-- Input box for item -->
+            <div class="input-box">
+              <span class="details">Item</span>
+              <input
+                type="text"
+                id="item"
+                name="item"
+                placeholder="Enter Item..."
+                required
+              />
+            </div>
+            <!-- Input box for Year -->
+            <div class="input-box">
+              <span class="details">Year</span>
+              <input
+                type="number"
+                id="year"
+                name="year"
+                placeholder="Enter Year..."
+                required
+              />
+            </div>
+
+            <!-- Input box for average rainfall in millimetre per year -->
+            <div class="input-box">
+              <span class="details">Average_Rainfall_mm_Per_Year</span>
+              <input
+                type="number"
+                id="rainfall"
+                name="average_rain_fall_per_mm"
+                placeholder="Enter Average_Rainfall_mm_Per_Year..."
+                required
+              />
+            </div>
+            <!-- Input box for pesticide measured in tonnes -->
+            <div class="input-box">
+              <span class="details">Pesticide_Tonnes</span>
+              <input
+                type="number"
+                id="pesticide"
+                name="pesticide_tonnes"
+                placeholder="Enter Pesticides In Tonnes..."
+                required
+              />
+            </div>
+            <!-- Input box for temperature -->
+            <div class="input-box">
+              <span class="details">Average_Tempearature</span>
+              <input
+                type="number"
+                id="temperature"
+                name="avg_temp"
+                placeholder="Enter Average Temperature In Your Region..."
+                required
+              />
+            </div>
+          </div>
+          <!-- Button container -->
+          <div class="button-container">
+            <div class="button">
+              <!-- Submit button -->
+              <button
+                type="submit"
+                value="Find Estimate"
+              >
+                Find Estimate
+              </button>
+              <!-- <input type = "submit" value="Find Estimate"> -->
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <h1><div id="result"></div></h1>
+  </body>
+</html>

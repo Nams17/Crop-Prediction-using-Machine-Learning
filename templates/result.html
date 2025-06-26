@@ -1,0 +1,84 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        /* background-image: url("{% static 'images/bg.jpg' %}"); */
+        background-image: url("{% static '123.jpg'%}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .float-number {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        font-weight: bold;
+        color: #000000;
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      .result-container {
+    display: flex;
+    align-items: center;
+    margin: 10px;  }
+
+.result-container label {
+    font-weight: bold;
+    margin-right:10px;}
+    </style>
+  </head>
+  <body>
+    <div class="container float-number">
+       
+         
+         <form
+          id="myForm"
+          action="{% url 'result' %}"
+          method="POST"
+        >
+        <!-- <div>
+          <span class="details">Estimated Yield</span>
+          <label>
+            id="Estimated Yield"
+            name="Estimated Yield"
+            placeholder=""
+            required
+          </label>
+        </div> -->
+        <div class="result-container">
+          <label for="estimated-result">Estimated Yield:</label>
+          <span id="estimated-result">{{ result }} hg/ha</span>
+  </div>
+    </div>
+  </body>
+</html>
