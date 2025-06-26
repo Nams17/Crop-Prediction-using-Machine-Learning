@@ -1,6 +1,6 @@
 # 🌾 Crop Prediction Using Machine Learning
 
-This project aims to help farmers and agricultural experts make informed decisions about which crops to grow based on various environmental parameters. By leveraging a Machine Learning model, it predicts the most suitable crop based on user input such as temperature, humidity, rainfall, and soil nutrients (NPK values).
+This project aims to help farmers and agricultural experts make informed decisions about the crop yield based on various environmental parameters. By leveraging a Machine Learning model, it will predict how much crop will grow in that particular season based on user input such as temperature, humidity, rainfall, and soil nutrients (NPK values).
 
 ---
 
